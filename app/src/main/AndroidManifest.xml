@@ -76,11 +76,11 @@
         android:theme="@style/Collect" >
         <provider
             android:name=".provider.FormsProvider"
-            android:authorities="com.geoodk.collect.android.provider.odk.forms"
+            android:authorities="et.map.bandira.geoodk.collect.android.provider.odk.forms"
             android:exported="true" />
         <provider
             android:name=".provider.InstanceProvider"
-            android:authorities="com.geoodk.collect.android.provider.odk.instances"
+            android:authorities="et.map.bandira.geoodk.collect.android.provider.odk.instances"
             android:exported="true" />
 
         <activity
