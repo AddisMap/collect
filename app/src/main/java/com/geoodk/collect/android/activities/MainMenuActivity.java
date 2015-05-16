@@ -49,6 +49,7 @@ import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -326,16 +327,19 @@ public class MainMenuActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		Collect.getInstance().getActivityLogger()
 				.logAction(this, "onCreateOptionsMenu", "show");
+
 		super.onCreateOptionsMenu(menu);
 
 		CompatibilityUtils.setShowAsAction(
-    		menu.add(0, MENU_PREFERENCES, 0, R.string.general_preferences)
-				.setIcon(R.drawable.ic_menu_preferences),
-			MenuItem.SHOW_AS_ACTION_NEVER);
+				menu.add(0, MENU_PREFERENCES, 0, R.string.general_preferences)
+						.setIcon(R.drawable.ic_menu_preferences),
+				MenuItem.SHOW_AS_ACTION_NEVER);
 		CompatibilityUtils.setShowAsAction(
-    		menu.add(0, MENU_ADMIN, 0, R.string.admin_preferences)
-				.setIcon(R.drawable.ic_menu_login),
-			MenuItem.SHOW_AS_ACTION_NEVER);
+				menu.add(0, MENU_ADMIN, 0, R.string.admin_preferences)
+						.setIcon(R.drawable.ic_menu_login),
+				MenuItem.SHOW_AS_ACTION_NEVER);
+
+
 		return true;
 	}
 

@@ -33,6 +33,7 @@ import com.geoodk.collect.android.application.Collect;
 import com.geoodk.collect.android.preferences.AdminPreferencesActivity;
 import com.geoodk.collect.android.preferences.MapSettings;
 import com.geoodk.collect.android.preferences.PreferencesActivity;
+import com.geoodk.collect.android.utilities.CompatibilityUtils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -59,7 +60,6 @@ public class GeoODK extends Activity {
 
 	
     public static final String FORMS_PATH = Collect.ODK_ROOT + File.separator + "forms";
-	
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -166,6 +166,19 @@ public class GeoODK extends Activity {
 	}
 
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		Collect.getInstance().getActivityLogger()
+				.logInstanceAction(this, "onCreateOptionsMenu", "show");
+		super.onCreateOptionsMenu(menu);
+
+		CompatibilityUtils.setShowAsAction(
+				menu.add(0, 0, 0, "Repi").setIcon(
+						R.drawable.ic_menu_repi_logo),
+				MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+		return true;
+	}
 
 	private void copyForms(String[] forms){
 		AssetManager assetManager = getAssets();
